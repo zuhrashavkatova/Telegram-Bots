@@ -12,12 +12,11 @@ mydb = mysql.connector.connect(
 )
 mycursor = mydb.cursor()
 
- # bot token obtained from BotFather
+# Replace 'YOUR_BOT_TOKEN' with your actual bot token obtained from BotFather
 TOKEN = '7005024345:AAEoA6Ov-nXKQKt3YN74RAZpo7zz4CnaG08'
 
 # Create a new Telebot instance
 bot = telebot.TeleBot(TOKEN)
-
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
@@ -30,7 +29,6 @@ def start_message(message):
     confirm_payment_button = types.KeyboardButton('Confirm payment \U0001F4B3')  # 💳
     keyboard.add(register_button, login_button, products_button, cart_button, delete_button, confirm_payment_button)
     bot.reply_to(message, "Welcome to our store! How can I assist you today?", reply_markup=keyboard)
-
 
 # Define a handler for the login message
 @bot.message_handler(func=lambda message: message.text == "Login \U0001F512")
